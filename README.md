@@ -1,1 +1,1 @@
-# Aplicación que emulará un Bazar
+# La Pentola Bazar - Ecommerce
