@@ -1,1 +1,1 @@
-# r-native-aarana-56680
+# Aplicación que emulará un Bazar
