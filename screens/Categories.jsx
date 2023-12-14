@@ -1,6 +1,6 @@
 import { FlatList, StyleSheet, Text, View } from 'react-native'
 import React from 'react'
-import Header from '../components/Header'
+//import Header from '../components/Header'
 import categories_data from '../data/categories_data.json'
 import CategoryItem from '../components/CategoryItem'
 import { colors } from '../global/colors'
@@ -15,7 +15,7 @@ const Categories = ({navigation}) => {
   return (
     <>
     <View style={styles.homeContainer}>
-      <Header title="Categorías" />
+      {/* <Header title="Categorías" /> */}
       <FlatList
         data={categories_data}
         renderItem={renderCategoryItem}

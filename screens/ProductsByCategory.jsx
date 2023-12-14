@@ -2,7 +2,7 @@ import { Button, FlatList, Pressable, StyleSheet, Text, View } from 'react-nativ
 import React from 'react'
 import products_data from '../data/products_data.json'
 import ProductItem from '../components/ProductItem'
-import Header from '../components/Header'
+//import Header from '../components/Header'
 import { useEffect, useState } from 'react'
 import Search from '../components/Search'
 import { colors } from '../global/colors'
@@ -48,7 +48,7 @@ const ProductsByCategory = ({route, returnHomeHandlerEvent, navigation}) => {
   return (
     <>
       <View style={styles.container}>
-        <Header title="Productos" returnHomeHandlerEvent={returnHomeHandlerEvent} />
+        {/* <Header title="Productos" returnHomeHandlerEvent={returnHomeHandlerEvent} /> */}
         <Search onSearchHandlerEvent={onSearch} />
         <FlatList
           data={ProductsByCategory}

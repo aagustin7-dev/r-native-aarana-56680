@@ -1,7 +1,7 @@
 import { ActivityIndicator, StyleSheet, Image, Text, View, TouchableOpacity, useWindowDimensions, ScrollView, Dimensions } from 'react-native'
 import React, { useEffect, useState } from 'react'
 import products_data from '../data/products_data.json'
-import Header from '../components/Header'
+//import Header from '../components/Header'
 import Carousel from 'react-native-snap-carousel';
 
 const ProductDetail = ({route}) => {
@@ -46,7 +46,7 @@ const ProductDetail = ({route}) => {
       <ActivityIndicator />
       :
       <View>
-        <Header title="Detalle del producto"/>
+        {/* <Header title="Detalle del producto"/> */}
         <Text>{"\n"}</Text>
         <ScrollView>
           <Carousel

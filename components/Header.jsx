@@ -1,18 +1,18 @@
-import { Pressable, StyleSheet, Text, View } from 'react-native'
+import { Pressable, StyleSheet, Text, View, TouchableOpacity } from 'react-native'
 import React from 'react'
 import { StatusBar } from "expo-status-bar";
 import { colors } from '../global/colors'
 import { AntDesign } from '@expo/vector-icons';
 
-const Header = ({title, returnHomeHandlerEvent }) => {
+const Header = ({ title, navigation }) => {
 
   return (
     <View style={styles.headerContainer}>
       <StatusBar backgroundColor="black" />
       <Text style={styles.headerTitle}>{title}</Text>
-      <Pressable onPress={returnHomeHandlerEvent}>
-        <AntDesign name="home" size={24} color="#fff" />
-      </Pressable>
+      <TouchableOpacity onPress={navigation.goBack}>
+        <AntDesign name="home" size={24} color="black" />
+      </TouchableOpacity>
     </View>
   )
 }
