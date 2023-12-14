@@ -1,9 +1,10 @@
 import { ActivityIndicator } from "react-native";
-import Categories from "./screens/Categories";
+//import Categories from "./screens/Categories";
 import { useFonts } from "expo-font";
-import ProductsByCategory from './screens/ProductsByCategory'
-import ProductDetail from './screens/ProductDetail'
+//import ProductsByCategory from './screens/ProductsByCategory'
+//import ProductDetail from './screens/ProductDetail'
 import { useState } from "react";
+import Navigator from './navigation/Navigator'
 
 export default function App() {
 
@@ -50,6 +51,13 @@ export default function App() {
   
   return (
     <>
+      <Navigator />
+    </>
+  );
+}
+
+/*
+<>
     {
       productIdSelected
       ?
@@ -62,5 +70,4 @@ export default function App() {
       <Categories onSelectedCategoryEvent={onSelectCategory} />
     }
     </>
-  );
-}
+*/
