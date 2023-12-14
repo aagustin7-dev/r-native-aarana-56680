@@ -5,10 +5,10 @@ import React from 'react'
 import Card from './Card'
 import { colors } from '../global/colors'
 
-const CategoryItem = ({category, onSelectedCategoryEvent}) => {
+const CategoryItem = ({category, navigation}) => {
   return (
 
-   <TouchableOpacity onPress={()=>onSelectedCategoryEvent(category)}>
+   <TouchableOpacity onPress={()=>navigation.navigate("Productos", {category})}>
    <Card style={styles.cardContainer}>
         <Text style={styles.text}>{category}</Text>
    </Card>

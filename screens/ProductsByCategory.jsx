@@ -8,13 +8,15 @@ import Search from '../components/Search'
 import { colors } from '../global/colors'
 import { Entypo } from '@expo/vector-icons';
 
-const ProductsByCategory = ({category, returnHomeHandlerEvent, onSelectProductIdEvent}) => {
+const ProductsByCategory = ({route, returnHomeHandlerEvent, navigation}) => {
   
   /* Definición de variable que alojará mi listado de productos (en base a una categoria seleccionada) */
 
   const [ProductsByCategory, setProductsByCategory] = useState([]) 
   const [search, setSearch] = useState("")
   
+  const { category } = route.params
+
   /* Definición del Hook useEffect que servirá para monitorear el cambio de categoria según ocurra */
 
 
@@ -35,7 +37,7 @@ const ProductsByCategory = ({category, returnHomeHandlerEvent, onSelectProductId
   
   const renderProductItem = ({item}) => (
     
-    <ProductItem product={item} onSelectProductIdEvent={onSelectProductIdEvent} />
+    <ProductItem product={item} navigation={navigation} />
   )
 
   /* Definición de función que viajará por prop al componente Search */

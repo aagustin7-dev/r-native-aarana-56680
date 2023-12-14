@@ -5,10 +5,10 @@ import categories_data from '../data/categories_data.json'
 import CategoryItem from '../components/CategoryItem'
 import { colors } from '../global/colors'
 
-const Categories = ({onSelectedCategoryEvent}) => {
+const Categories = ({navigation}) => {
 
   const renderCategoryItem = ({item}) => (
-    <CategoryItem category={item} onSelectedCategoryEvent={onSelectedCategoryEvent} />
+    <CategoryItem category={item} navigation={navigation} />
   )
 
 

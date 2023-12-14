@@ -4,7 +4,7 @@ import { useFonts } from "expo-font";
 //import ProductsByCategory from './screens/ProductsByCategory'
 //import ProductDetail from './screens/ProductDetail'
 import { useState } from "react";
-import Navigator from './navigation/Navigator'
+import Navigator from './navigation/Navigator';
 
 export default function App() {
 

@@ -1,4 +1,4 @@
-import { createNativeStackNavigation } from "@react-navigation/native-stack"
+import { createNativeStackNavigator } from "@react-navigation/native-stack"
 import { NavigationContainer } from "@react-navigation/native"
 
 // Importamos las vistas
@@ -7,11 +7,11 @@ import Categories from "../screens/Categories"
 import ProductsBycategory from "../screens/ProductsByCategory"
 import ProductDetail from "../screens/ProductDetail"
 
-const Stack = createNativeStackNavigation()
+const Stack = createNativeStackNavigator()
 
 
 const Navigator = () => {
-    
+
   return (
     <NavigationContainer>
         <Stack.Navigator>
@@ -20,11 +20,11 @@ const Navigator = () => {
                 component={Categories}
             />
             <Stack.Screen 
-                name="Productos por Categoría"
+                name="Productos"
                 component={ProductsBycategory}
             />
             <Stack.Screen 
-                name="Detalle del producto"
+                name="Detalle"
                 component={ProductDetail}
             />
         </Stack.Navigator>
@@ -33,5 +33,3 @@ const Navigator = () => {
 }
 
 export default Navigator
-
-const styles = StyleSheet.create({})

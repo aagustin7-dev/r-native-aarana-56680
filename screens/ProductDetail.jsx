@@ -4,13 +4,15 @@ import products_data from '../data/products_data.json'
 import Header from '../components/Header'
 import Carousel from 'react-native-snap-carousel';
 
-const ProductDetail = ({productId}) => {
+const ProductDetail = ({route}) => {
 
   const [productSelected, setProductSelected] = useState("")
   const [isLoading, setIsLoading] = useState(true)
   const [isPortrait, setIsPortrait] = useState(true)
   const { height, width } = useWindowDimensions()
-
+  
+  const productId = route.params
+  
   useEffect(() => {
     height < width ? setIsPortrait(false) : setIsPortrait(true)
   }, [height])
