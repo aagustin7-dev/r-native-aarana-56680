@@ -8,10 +8,9 @@ const Header = ({ title, navigation }) => {
 
   return (
     <View style={styles.headerContainer}>
-      <StatusBar backgroundColor="black" />
       <Text style={styles.headerTitle}>{title}</Text>
       <TouchableOpacity onPress={navigation.goBack}>
-        <AntDesign name="home" size={24} color="black" />
+        <AntDesign name="back" size={24} color="white" />
       </TouchableOpacity>
     </View>
   )
@@ -21,17 +20,13 @@ export default Header
 
 const styles = StyleSheet.create({
     headerContainer: {
-        height: 100,
+        height: 120,
         justifyContent: 'space-between',
         alignItems: 'flex-end',
         backgroundColor: colors.header,
         flexDirection: 'row',
         paddingHorizontal: 20,
         paddingBottom: 35,
-        marginLeft: 30,
-        marginTop: 50,
-        marginRight: 30,
-        borderRadius: 15
     },
     headerTitle: {
         color: 'white',

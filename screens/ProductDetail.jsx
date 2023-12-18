@@ -2,7 +2,9 @@ import { ActivityIndicator, StyleSheet, Image, Text, View, TouchableOpacity, use
 import React, { useEffect, useState } from 'react'
 import products_data from '../data/products_data.json'
 //import Header from '../components/Header'
+import Footer from '../components/Footer'
 import Carousel from 'react-native-snap-carousel';
+import { colors } from '../global/colors';
 
 const ProductDetail = ({route}) => {
 
@@ -24,19 +26,25 @@ const ProductDetail = ({route}) => {
   }
   ,[productId])
 
+  //console.log(productSelected.images.map((value, index) => { return { position: index, valor: value }}));
+
+  //const arrayImages = productSelected.images.map((value) => { return { img: value }});
+  //console.log(arrayImages)
+
   const { width:screenWidth } = Dimensions.get("window")
   const sliderWidth = screenWidth;
   const itemWidth = screenWidth * 8;
-  
-  const renderItem = ({ item }) => {
-    <View>
-      <Image
-        source={{ uri: item }}
-        style={styles.imageProduct}
-      />
-    </View>
-  }
 
+  const renderItem = ({item}) => 
+    (
+      <View style={styles.itemContainer}>
+          <Image 
+            source={{uri:item}}
+            resizeMode='contain'
+            style={styles.itemImg}
+          />
+      </View>
+    )
 
   return (
     <>
@@ -45,17 +53,18 @@ const ProductDetail = ({route}) => {
       ?
       <ActivityIndicator />
       :
-      <View>
+      <View style={styles.backgroundDetail}>
         {/* <Header title="Detalle del producto"/> */}
-        <Text>{"\n"}</Text>
         <ScrollView>
           <Carousel
-            layout='default'
-            data={productSelected.images}
-            renderItem={renderItem}
-            sliderWidth={sliderWidth}
-            itemWidth={itemWidth}
+              layout='default'
+              data={productSelected.images}
+              renderItem={renderItem}
+              sliderWidth={sliderWidth}
+              itemWidth={itemWidth}
+              autoplay={true}
           />
+          <Text>{"\n"}</Text>
           <View style={styles.detailContainer}>
             <Text style={styles.title}>{productSelected.title}</Text>
             <Text style={styles.description}>{productSelected.description}</Text>
@@ -63,10 +72,12 @@ const ProductDetail = ({route}) => {
             <TouchableOpacity style={styles.buyButton} onPress={() => null}>
               <Text style={styles.buyText}>Comprar</Text>
             </TouchableOpacity>
+            <Text>{"\n"}</Text>
           </View>
         </ScrollView>
       </View>
-    }      
+    }
+    <Footer />      
     </>
   )
 }
@@ -104,10 +115,24 @@ const styles = StyleSheet.create({
     width: 200,
     padding: 10,
     alignItems: 'center',
-    backgroundColor: 'green',
+    backgroundColor: colors.buyButton,
     borderRadius: 10
   },
   buyText: {
-    color: '#fff'
+    color: '#fff',
+    fontWeight: 'bold',
+    fontSize: 15
+  },
+  itemContainer: {
+   marginTop: 20,
+  },
+  itemImg: {
+    width: '100%',
+    height: 280,
+    aspectRatio: 3/2
+  },
+  backgroundDetail: {
+    backgroundColor: colors.home,
+    marginTop: 15,
   }
 })

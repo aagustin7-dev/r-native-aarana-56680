@@ -7,12 +7,13 @@ import { colors } from '../global/colors'
 
 const CategoryItem = ({category, navigation}) => {
   return (
-
-   <TouchableOpacity onPress={()=>navigation.navigate("Productos", {category})}>
-   <Card style={styles.cardContainer}>
-        <Text style={styles.text}>{category}</Text>
-   </Card>
-   </TouchableOpacity>
+    <>
+      <TouchableOpacity onPress={()=>navigation.navigate("Productos", {category})}>
+        <Card style={styles.cardContainer}>
+            <Text style={styles.text}>{category}</Text>
+        </Card>
+      </TouchableOpacity>
+    </>
   )
 }
 

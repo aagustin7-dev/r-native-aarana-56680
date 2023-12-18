@@ -3,6 +3,7 @@ import React from 'react'
 import products_data from '../data/products_data.json'
 import ProductItem from '../components/ProductItem'
 //import Header from '../components/Header'
+import Footer from '../components/Footer'
 import { useEffect, useState } from 'react'
 import Search from '../components/Search'
 import { colors } from '../global/colors'
@@ -55,11 +56,12 @@ const ProductsByCategory = ({route, returnHomeHandlerEvent, navigation}) => {
           renderItem={renderProductItem}
           keyExtractor={item=>item.id}
         />
-        <View style={styles.footer}>
+        {/*<View style={styles.footer}>
           <Entypo name="eye" size={24} color="white" />
           <Text style={styles.footerText}> Estás viendo:  {category}</Text>
-        </View>
+          </View> */}
       </View>
+      <Footer />
     </>
   )
 }
@@ -69,18 +71,6 @@ export default ProductsByCategory
 const styles = StyleSheet.create({
   container: {
     backgroundColor: colors.home,
-  },
-  footer: {
-    backgroundColor: colors.footer,
-    marginTop: 30,
-    padding: 20,
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'center'
-  },
-  footerText: {
-    color: 'white',
-    fontWeight: 'bold',
-    fontSize: 15,
+    marginTop: 15
   }
 })
