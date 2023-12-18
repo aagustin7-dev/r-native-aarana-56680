@@ -72,7 +72,6 @@ const ProductDetail = ({route}) => {
             <TouchableOpacity style={styles.buyButton} onPress={() => null}>
               <Text style={styles.buyText}>Comprar</Text>
             </TouchableOpacity>
-            <Text>{"\n"}</Text>
           </View>
         </ScrollView>
       </View>
@@ -85,15 +84,6 @@ const ProductDetail = ({route}) => {
 export default ProductDetail
 
 const styles = StyleSheet.create({
-  imageProduct: {
-    minWidth: 300,
-    width: '100%',
-    height: 350,
-  },
-  imageProductLandscape: {
-    width: 200,
-    height: 200,
-  },
   detailContainer: {
     alignItems: 'center'
   },
@@ -103,7 +93,8 @@ const styles = StyleSheet.create({
   },
   description: {
     fontFamily: 'Afacad-Regular',
-    fontSize: 20
+    fontSize: 20,
+    padding: 10
   },
   price: {
     fontFamily: 'Afacad-SemiBold',
@@ -134,5 +125,7 @@ const styles = StyleSheet.create({
   backgroundDetail: {
     backgroundColor: colors.home,
     marginTop: 15,
+    width: '100%',
+    height: 620
   }
 })
