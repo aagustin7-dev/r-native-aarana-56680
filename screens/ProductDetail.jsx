@@ -75,8 +75,7 @@ const ProductDetail = ({route}) => {
           </View>
         </ScrollView>
       </View>
-    }
-    <Footer />      
+    }     
     </>
   )
 }
@@ -126,6 +125,6 @@ const styles = StyleSheet.create({
     backgroundColor: colors.home,
     marginTop: 15,
     width: '100%',
-    height: 620
+    height: 700
   }
 })

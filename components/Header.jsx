@@ -9,9 +9,15 @@ const Header = ({ title, navigation }) => {
   return (
     <View style={styles.headerContainer}>
       <Text style={styles.headerTitle}>{title}</Text>
-      <TouchableOpacity onPress={navigation.goBack}>
-        <AntDesign name="back" size={24} color="white" />
-      </TouchableOpacity>
+      {
+        navigation.canGoBack()
+        ?
+        <TouchableOpacity onPress={navigation.goBack}>
+          <AntDesign name="back" size={24} color="white" />
+        </TouchableOpacity>
+        :
+        <AntDesign name="home" size={24} color="white" />
+      }
     </View>
   )
 }
