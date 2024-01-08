@@ -1,19 +1,18 @@
-import { Button, FlatList, Pressable, StyleSheet, Text, View } from 'react-native'
-import React from 'react'
+import { Button, FlatList, Pressable, StyleSheet, Text, View, ActivityIndicator } from 'react-native'
 //import products_data from '../data/products_data.json'
 import ProductItem from '../components/ProductItem'
 //import Header from '../components/Header'
-import Footer from '../components/Footer'
 import { useEffect, useState } from 'react'
 import Search from '../components/Search'
 import { colors } from '../global/colors'
 import { useSelector, useDispatch } from 'react-redux'
+import { useGetProductsByCategoryQuery } from '../services/shopService'
 
 const ProductsByCategory = ({route, navigation}) => {
   
   /* Definición de variable que alojará mi listado de productos (en base a una categoria seleccionada) */
 
-  const [ProductsByCategory, setProductsByCategory] = useState([]) 
+  const [productsByCategory, setProductsByCategory] = useState([]) 
   const [search, setSearch] = useState("")
   
   //const { category } = route.params
@@ -21,19 +20,20 @@ const ProductsByCategory = ({route, navigation}) => {
   /* Definición del Hook useEffect que servirá para monitorear el cambio de categoria según ocurra */
 
   const category = useSelector(state=>state.shopReducer.categorySelected)
-  const productsFilteredByCategory = useSelector(state=>state.shopReducer.productsFilteredByCategory)
+  //const productsFilteredByCategory = useSelector(state=>state.shopReducer.productsFilteredByCategory)
+
+  const {data: productsFilteredByCategory, isLoading, error} = useGetProductsByCategoryQuery(category)
 
   useEffect(()=>{
 
-    /* Proceso que alojará un nuevo array filtrado con los productos de la categoria seleccionada que viene por props */
-    //const productsFilterByCategory = products_data.filter(product=>product.category===category)
+    if(!isLoading){
+      const productsValues = Object.values(productsFilteredByCategory)
+      const productsFiltered = productsValues.filter(
+      product=>product.title.toLowerCase().includes(search.toLowerCase()))
+      setProductsByCategory(productsFiltered)
+    }
 
-    /* Se aplica un re-filter sobre el array previamente filtrado por categorias y se utiliza esta nueva variable en el useEffect [] */
-    const productsFiltered = productsFilteredByCategory.filter(product=>product.title.toLowerCase().includes(search.toLowerCase()))
-    /* Seteo del nuevo array en mi variable definida anteriormente */
-    setProductsByCategory(productsFiltered)
-  },[category, search]
-  )
+  },[isLoading, category, search])
 
   /* La funcion proveniente del FlatList, usará en este caso el componente ProductItem */
   
@@ -49,15 +49,20 @@ const ProductsByCategory = ({route, navigation}) => {
 
   return (
     <>
-      <View style={styles.container}>
-        {/* <Header title="Productos" returnHomeHandlerEvent={returnHomeHandlerEvent} /> */}
-        <Search onSearchHandlerEvent={onSearch} />
-        <FlatList
-          data={ProductsByCategory}
-          renderItem={renderProductItem}
-          keyExtractor={item=>item.id}
-        />
-      </View>
+      {
+        isLoading
+        ?
+        <ActivityIndicator />
+        :
+        <>
+            <Search onSearchHandlerEvent ={onSearch} />
+            <FlatList
+                data={productsByCategory}
+                renderItem={renderProductItem}
+                keyExtractor={item=>item.id}
+            />
+        </>
+        }
     </>
   )
 }

@@ -1,0 +1,1 @@
+export const base_url = 'https://aarana-app-56680-default-rtdb.firebaseio.com/'

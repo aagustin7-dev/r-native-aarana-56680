@@ -3,48 +3,38 @@ import React, { useEffect, useState } from 'react'
 import products_data from '../data/products_data.json'
 //import Header from '../components/Header'
 import Footer from '../components/Footer'
-import Carousel from 'react-native-snap-carousel';
 import { colors } from '../global/colors';
+import { useSelector, useDispatch } from 'react-redux'
+import { setProductSelected } from '../features/shopSlice'
+import Carousel from '../components/Carousel'
+import { addItem } from '../features/cartSlice'
 
 const ProductDetail = ({route}) => {
 
-  const [productSelected, setProductSelected] = useState("")
+  //const [productSelected, setProductSelected] = useState("")
   const [isLoading, setIsLoading] = useState(true)
   const [isPortrait, setIsPortrait] = useState(true)
   const { height, width } = useWindowDimensions()
   
   const productId = route.params
+  const productSelected = useSelector(state=>state.shopReducer.productSelected)
   
   useEffect(() => {
     height < width ? setIsPortrait(false) : setIsPortrait(true)
   }, [height])
 
   useEffect(()=>{
-    const productFound = products_data.find(product=>product.id===productId)
-    setProductSelected(productFound)
+    /*const productFound = products_data.find(product=>product.id===productId)
+    setProductSelected(productFound)*/
     setIsLoading(false)
   }
   ,[productId])
 
-  //console.log(productSelected.images.map((value, index) => { return { position: index, valor: value }}));
+  const dispatch = useDispatch()
 
-  //const arrayImages = productSelected.images.map((value) => { return { img: value }});
-  //console.log(arrayImages)
-
-  const { width:screenWidth } = Dimensions.get("window")
-  const sliderWidth = screenWidth;
-  const itemWidth = screenWidth * 8;
-
-  const renderItem = ({item}) => 
-    (
-      <View style={styles.itemContainer}>
-          <Image 
-            source={{uri:item}}
-            resizeMode='contain'
-            style={styles.itemImg}
-          />
-      </View>
-    )
+  const onAddToCart = () =>{
+    dispatch(addItem({...productSelected, quantity: 1}))
+  }
 
   return (
     <>
@@ -54,23 +44,15 @@ const ProductDetail = ({route}) => {
       <ActivityIndicator />
       :
       <View style={styles.backgroundDetail}>
-        {/* <Header title="Detalle del producto"/> */}
         <ScrollView>
-          <Carousel
-              layout='default'
-              data={productSelected.images}
-              renderItem={renderItem}
-              sliderWidth={sliderWidth}
-              itemWidth={itemWidth}
-              autoplay={true}
-          />
+          <Carousel />
           <Text>{"\n"}</Text>
           <View style={styles.detailContainer}>
             <Text style={styles.title}>{productSelected.title}</Text>
             <Text style={styles.description}>{productSelected.description}</Text>
             <Text style={styles.price}>$ {productSelected.price}</Text>
-            <TouchableOpacity style={styles.buyButton} onPress={() => null}>
-              <Text style={styles.buyText}>Comprar</Text>
+            <TouchableOpacity style={isPortrait ? styles.buyButton : styles.buyAlt} onPress={onAddToCart}>
+              <Text style={styles.buyText}>Agregar al carrito</Text>
             </TouchableOpacity>
           </View>
         </ScrollView>
@@ -126,5 +108,13 @@ const styles = StyleSheet.create({
     marginTop: 15,
     width: '100%',
     height: 700
+  },
+  buyAlt: {
+    marginTop: 10,
+    width: 200,
+    padding: 10,
+    alignItems: 'center',
+    backgroundColor: colors.header,
+    borderRadius: 10,
   }
 })
