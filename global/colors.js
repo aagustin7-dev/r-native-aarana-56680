@@ -3,5 +3,7 @@ export const colors = {
     card: "#dde5b6",
     home: "#f0ead2",
     footer: "#6c584c",
-    buyButton: "#adc178"
+    buyButton: "#adc178",
+    gray: '#ccc',
+    success: "#00A878"
 }
