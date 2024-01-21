@@ -1,12 +1,16 @@
 import { Pressable, StyleSheet, Text, View, Image } from 'react-native'
 import user_data from "../data/user_data.json"
 import { useSelector } from 'react-redux'
+import LocationSelector from '../components/LocationSelector'
+import { colors } from '../global/colors'
 
 const Profile = ({navigation}) => {
 
     const image = useSelector(state=>state.authReducer.profilePicture)
+    const location = useSelector(state=>state.authReducer.location)
 
     return (
+        <>
         <View style={styles.container}>
             <View>
                 <Pressable onPress={()=>navigation.navigate("Seleccionar imagen")}
@@ -42,6 +46,16 @@ const Profile = ({navigation}) => {
                 <Text style={styles.userData}>{user_data.city}</Text>
             </View>
         </View>
+        {
+            location.address
+            &&
+            <View style={styles.addressContainer}>
+                <Text style={styles.addressTitle}>Última ubicación guardada: </Text>
+                <Text style={styles.addressDescription}>{location.address}</Text>     
+            </View>
+        }
+        <LocationSelector />
+        </>
     )
 }
 
@@ -72,5 +86,22 @@ const styles = StyleSheet.create({
     userData: {
         fontFamily: 'Afacad-Regular',
         fontSize: 12
+    },
+    addressContainer: {
+        alignItems: 'center',
+        gap: 5,
+        padding: 10,
+        margin: 10,
+        borderRadius: 10,
+        backgroundColor: colors.header,
+    },
+    addressTitle: {
+        fontFamily: 'Afacad-SemiBold',
+        fontSize: 14,
+        color:"#fff"
+    },
+    addressDescription: {
+        fontFamily: 'Afacad-Regular',
+        color:"#fff"
     }
 })

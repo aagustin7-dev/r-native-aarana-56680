@@ -15,6 +15,7 @@ const Login = ({navigation}) => {
 
     const onSubmit = () => {
         triggerLogIn({email, password})
+        //triggerLogIn({email:"agus@agus.com", password:"123456"})
         console.log(result)
     }
     const dispatch = useDispatch()
