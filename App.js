@@ -4,9 +4,14 @@ import TabNavigator from "./navigation/TabNavigator";
 import MainNavigator from './navigation/MainNavigator';
 import { Provider } from 'react-redux';
 import store from './store';
+import { init } from './db';
 
 export default function App() {
 
+  init()
+  .then(()=>console.log("Database initializated"))
+  .catch((error)=>console.log("Initialize db failed: ", error))
+  
   /* Declaración e importación de Google Fonts*/
 
   const [fontsLoaded] = useFonts({

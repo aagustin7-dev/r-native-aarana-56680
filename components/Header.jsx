@@ -1,14 +1,23 @@
-import { Pressable, StyleSheet, Text, View, TouchableOpacity } from 'react-native'
+import { StyleSheet, Text, View, TouchableOpacity } from 'react-native'
 import React from 'react'
-import { StatusBar } from "expo-status-bar";
 import { colors } from '../global/colors'
 import { AntDesign } from '@expo/vector-icons';
+import { useDispatch, useSelector } from 'react-redux';
+import { logout } from '../features/authSlice';
+import { deleteSession } from '../db';
 
 const Header = ({ title, navigation }) => {
 
+  const email = useSelector(state=>state.authReducer.user)
+  const localId = useSelector(state=>state.authReducer.localId)
+  const dispatch = useDispatch()
+  const onLogout = ()=>{
+      dispatch(logout())
+      deleteSession(localId)
+  }
+
   return (
     <View style={styles.headerContainer}>
-      <Text style={styles.headerTitle}>{title}</Text>
       {
         navigation.canGoBack()
         ?
@@ -16,7 +25,16 @@ const Header = ({ title, navigation }) => {
           <AntDesign name="back" size={24} color="white" />
         </TouchableOpacity>
         :
-        <AntDesign name="home" size={24} color="white" />
+        null
+      }
+
+      <Text style={styles.headerTitle}>{title}</Text>
+      {
+        email
+        &&
+        <TouchableOpacity onPress={onLogout}>
+            <AntDesign name="logout" size={20} color="white" />
+        </TouchableOpacity>
       }
     </View>
   )
