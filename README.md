@@ -6,10 +6,10 @@ Visualización y venta de productos de primera calidad de manera rápida y senci
 
 Este proyecto brinda la oportunidad y facilidad de poder adquirir diferentes productos a través de la aplicación creada con fines de emular una tienda. En ella, se podrán encontrar a la venta artículos como teléfonos celulares, computadoras informáticas, todo tipo de artículos para el hogar y decoración, como así también una variedad de diferentes opciones mobiliarias como ser camas, mesas y roperos entre otros.
 
-## !Comencemos!
+## ¡Comencemos!
 
 
-### Herramientas y detalles importantes
+## Herramientas y detalles importantes
 
 * Aplicación disponible para ser emulada en Windows y Linux (ubuntu y distribuciones de caracter similar).
 * [expo-go](https://docs.expo.dev/get-started/installation/)
@@ -18,7 +18,7 @@ Este proyecto brinda la oportunidad y facilidad de poder adquirir diferentes pro
 * [Troubleshooting](https://docs.google.com/document/d/1CQeclAW0M2IGJqZOvMwRQtobAyAci529AQ6K1LzbH98/edit)
 * [Creación-de-AVD](https://developer.android.com/studio/run/managing-avds)
 
-### Dependencias Utilizadas
+## Dependencias Utilizadas
 
 * expo/vector-icons (Utilización de íconos)
 * react-navigation (Navegación por las diferentes pantallas/screens)
@@ -31,16 +31,16 @@ Este proyecto brinda la oportunidad y facilidad de poder adquirir diferentes pro
 * expo-sqlite (Persistencia de datos de forma local)
 
 
-### Instalación
+## Instalación
 
 * Para que la aplicación funcione correctamente, deberas haber instalado previamente todas las herramientas descriptas anteriormente en el proyecto, incluyendo Git. Ahora, desde tu terminal deberás ejecutar:
 
-# Creación de carpeta para alojar el proyecto
+### Creación de carpeta para alojar el proyecto
 ```
 $ mkdir tienda-lapentola
 ```
 
-# Clonación de repositorio 
+### Clonación de repositorio 
 ```
 $ cd tienda-lapentola
 ```
@@ -48,12 +48,12 @@ $ cd tienda-lapentola
 $ git clone https://github.com/aagustin7-dev/r-native-aarana-56680
 ```
 
-# Instalar las dependencias requeridas
+### Instalar las dependencias requeridas
 ```
 $ npm install
 ```
 
-# Ejecutar la aplicación
+### Ejecutar la aplicación
 ```
 $ npx expo start
 ```
@@ -61,7 +61,6 @@ $ npx expo start
 ## Autor
 
 El proyecto fue realizado por Agustín Arana
-Comisión 566680 - CoderCouse
 
 ## Github
 
