@@ -51,7 +51,6 @@ const LocationSelector = () => {
             })()
     }, [location])
 
-
     const dispatch = useDispatch()
 
     const onConfirmAddress = ()=>{

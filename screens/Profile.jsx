@@ -48,7 +48,6 @@ const Profile = ({navigation}) => {
         </View>
         {
             location.address
-            
             &&
             <View style={styles.addressContainer}>
                 <Text style={styles.addressTitle}>Última ubicación guardada: </Text>
