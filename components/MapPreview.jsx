@@ -25,7 +25,6 @@ const styles = StyleSheet.create({
         alignItems:'center'
     },
     mapImage:{
-        //width: Dimensions.get('window').width,
         width: 300,
         height: 300,
     }

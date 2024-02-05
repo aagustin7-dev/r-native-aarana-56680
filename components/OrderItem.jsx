@@ -1,7 +1,8 @@
-import { StyleSheet, Text, TouchableOpacity, View, Image } from 'react-native'
+import { StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import React from 'react'
 import Card from './Card'
 import { Feather } from '@expo/vector-icons';
+import { colors } from '../global/colors'
 
 const OrderItem = ({ order, setOrderId, setModalVisible }) => {
 
@@ -10,7 +11,7 @@ const OrderItem = ({ order, setOrderId, setModalVisible }) => {
 
     return (
         <>
-            <Card style={styles.cartItemContainer}>
+            <Card style={styles.orderItemContainer}>
                 <View >
                     <Text style={styles.createdAt}>
                         Creada el {date}
@@ -22,7 +23,7 @@ const OrderItem = ({ order, setOrderId, setModalVisible }) => {
                     setModalVisible(true)
                     }}
                 >
-                    <Feather name="search" size={24} color="black" />
+                    <Feather name="search" size={24} color="white" />
                 </TouchableOpacity>
             </Card>
         </>
@@ -32,10 +33,13 @@ const OrderItem = ({ order, setOrderId, setModalVisible }) => {
 export default OrderItem
 
 const styles = StyleSheet.create({
-    cartItemContainer: {
+    orderItemContainer: {
         flexDirection: 'row',
         alignItems: 'center',
         padding: 20,
+        marginTop: 20,
+        margin: 10,
+        backgroundColor: colors.orders
     },
     searchIcon: {
         marginLeft: 'auto',
@@ -43,9 +47,11 @@ const styles = StyleSheet.create({
     createdAt:{
         fontFamily: 'Afacad-Regular',
         marginBottom:5,
+        color: "white"
     },
     total:{
         fontFamily: 'Afacad-SemiBold',
         fontSize:14,
+        color: "white"
     }
 })

@@ -1,5 +1,4 @@
 import { StyleSheet, Text, TouchableOpacity, View, FlatList } from 'react-native'
-//import cart_data from "../data/cart_data.json"
 import CartItem from '../components/CartItem'
 import { colors } from '../global/colors'
 import { useSelector } from 'react-redux';
@@ -45,20 +44,22 @@ export default Cart
 const styles = StyleSheet.create({
   cartContainer: {
     flex: 1,
+    backgroundColor: colors.cart,
   },
   cartConfirm: {
-    marginBottom: 130,
+    marginBottom: 110,
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    paddingHorizontal: 25,
+    paddingHorizontal: 45,
+    marginTop: 20
   },
   totalPrice: {
     fontSize: 20,
     fontFamily: 'Afacad-Medium'
   },
   confirmButton:{
-    backgroundColor: colors.header,
+    backgroundColor: colors.confirmButton,
     padding:10,
     borderRadius:10,
   },

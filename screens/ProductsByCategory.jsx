@@ -1,11 +1,9 @@
-import { Button, FlatList, Pressable, StyleSheet, Text, View, ActivityIndicator } from 'react-native'
-//import products_data from '../data/products_data.json'
+import { FlatList, StyleSheet, View, ActivityIndicator } from 'react-native'
 import ProductItem from '../components/ProductItem'
-//import Header from '../components/Header'
 import { useEffect, useState } from 'react'
 import Search from '../components/Search'
 import { colors } from '../global/colors'
-import { useSelector, useDispatch } from 'react-redux'
+import { useSelector } from 'react-redux'
 import { useGetProductsByCategoryQuery } from '../services/shopService'
 
 const ProductsByCategory = ({route, navigation}) => {
@@ -14,13 +12,10 @@ const ProductsByCategory = ({route, navigation}) => {
 
   const [productsByCategory, setProductsByCategory] = useState([]) 
   const [search, setSearch] = useState("")
-  
-  //const { category } = route.params
 
   /* Definición del Hook useEffect que servirá para monitorear el cambio de categoria según ocurra */
 
   const category = useSelector(state=>state.shopReducer.categorySelected)
-  //const productsFilteredByCategory = useSelector(state=>state.shopReducer.productsFilteredByCategory)
 
   const {data: productsFilteredByCategory, isLoading, error} = useGetProductsByCategoryQuery(category)
 
@@ -43,6 +38,7 @@ const ProductsByCategory = ({route, navigation}) => {
   )
 
   /* Definición de función que viajará por prop al componente Search */
+  
   const onSearch = (search) => {
     setSearch(search)
   }
@@ -56,11 +52,13 @@ const ProductsByCategory = ({route, navigation}) => {
         :
         <>
             <Search onSearchHandlerEvent ={onSearch} />
-            <FlatList
-                data={productsByCategory}
-                renderItem={renderProductItem}
-                keyExtractor={item=>item.id}
-            />
+            <View style={styles.container}>
+              <FlatList
+                  data={productsByCategory}
+                  renderItem={renderProductItem}
+                  keyExtractor={item=>item.id}
+              />
+            </View>
         </>
         }
     </>
@@ -72,7 +70,7 @@ export default ProductsByCategory
 const styles = StyleSheet.create({
   container: {
     backgroundColor: colors.home,
-    marginTop: 15,
+    marginTop: 10,
     width: '100%',
     height: 700
   }

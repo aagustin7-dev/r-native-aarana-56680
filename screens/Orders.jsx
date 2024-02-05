@@ -3,6 +3,7 @@ import OrderItem from '../components/OrderItem'
 import { useGetOrdersQuery } from '../services/shopService'
 import {useState, useEffect } from 'react'
 import { useSelector } from 'react-redux'
+import { colors } from '../global/colors'
 
 const Orders = () => {
 
@@ -34,22 +35,24 @@ const Orders = () => {
 
   return (
     <>
-      <FlatList
-        data={orderData}
-        renderItem={renderOrderItem}  
-      />
-      <Modal visible={modalVisible}>
-        <View style={styles.centeredView}>
-            <View style={styles.modalView}>
-              <Text style={styles.modalText}>Total: ${orderSelected?.total}</Text>
-              <Pressable
-                style={[styles.button, styles.buttonClose]}
-                onPress={() => setModalVisible(false)}>
-                <Text style={styles.textStyle}>Cerrar</Text>
-              </Pressable>
+    <View style={styles.ordersList}>
+        <FlatList
+          data={orderData}
+          renderItem={renderOrderItem}  
+        />
+        <Modal visible={modalVisible}>
+          <View style={styles.centeredView}>
+              <View style={styles.modalView}>
+                <Text style={styles.modalText}>Total: ${orderSelected?.total}</Text>
+                <Pressable
+                  style={[styles.button, styles.buttonClose]}
+                  onPress={() => setModalVisible(false)}>
+                  <Text style={styles.textStyle}>Cerrar</Text>
+                </Pressable>
+              </View>
             </View>
-          </View>
-      </Modal>
+        </Modal>
+      </View>
     </>
   )
 }
@@ -57,6 +60,10 @@ const Orders = () => {
 export default Orders
 
 const styles = StyleSheet.create({
+  ordersList: {
+    backgroundColor: colors.ordersList,
+    flex: 1,
+  },
   centeredView: {
     flex: 1,
     justifyContent: 'center',

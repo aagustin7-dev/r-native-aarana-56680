@@ -31,7 +31,8 @@ export default Categories
 const styles = StyleSheet.create({
   homeContainer: {
     backgroundColor: colors.home,
-    marginTop: 15,
+    flex: 1,
+
   },
   categories: {
     marginBottom: 90

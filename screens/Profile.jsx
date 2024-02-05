@@ -48,6 +48,7 @@ const Profile = ({navigation}) => {
         </View>
         {
             location.address
+            
             &&
             <View style={styles.addressContainer}>
                 <Text style={styles.addressTitle}>Última ubicación guardada: </Text>
@@ -92,8 +93,8 @@ const styles = StyleSheet.create({
         gap: 5,
         padding: 10,
         margin: 10,
-        borderRadius: 10,
-        backgroundColor: colors.header,
+        borderRadius: 5,
+        backgroundColor: colors.address,
     },
     addressTitle: {
         fontFamily: 'Afacad-SemiBold',

@@ -1,7 +1,8 @@
 import { View, Text, StyleSheet, Image, TouchableOpacity } from 'react-native'
 import React from 'react';
 import Card from './Card'
-import { Feather } from '@expo/vector-icons'; 
+import { Feather } from '@expo/vector-icons';
+import { colors } from '../global/colors'
 
 const CartItem = ({item}) => {
 
@@ -22,7 +23,7 @@ const CartItem = ({item}) => {
                 </Text>
             </View>
             <TouchableOpacity style={styles.trashCart} onPress={null}>
-                <Feather name="trash" size={24} color="black" />
+                <Feather name="trash" size={24} color="white" />
             </TouchableOpacity>
         </Card>
     </>
@@ -36,9 +37,8 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         alignItems: 'center',
         padding: 20,
-    },
-    cartContenContainer:{
-        flexDirection: 'row',
+        margin: 10,
+        backgroundColor: colors.cartItemList,
     },
     imageCartItem: {
         height: 50,
@@ -51,16 +51,19 @@ const styles = StyleSheet.create({
     cartTitle:{
         fontFamily:'Afacad-SemiBold',
         textTransform: 'capitalize',
-        fontSize:20
+        fontSize:20,
+        color: "white"
     },
     cartLightText:{
         fontFamily:'Afacad-Regular',
         textTransform: 'capitalize',
         fontSize:15,
+        color: "white"
     },
     cartTotalPrice:{
         fontFamily:'Afacad-SemiBold',
         textTransform: 'capitalize',
         fontSize:16,
+        color: "white"
     }
 })

@@ -1,5 +1,3 @@
-//Componente básico que tendrá estilos personalizados y sombras para utilizar en cualquier screen de mi proyecto
-
 import { StyleSheet, Text, View } from 'react-native'
 import React, { children } from 'react'
 

@@ -16,8 +16,6 @@ const Login = ({navigation}) => {
 
     const onSubmit = () => {
         triggerLogIn({email, password})
-        //triggerLogIn({email:"agus@agus.com", password:"123456"})
-        console.log(result)
     }
     const dispatch = useDispatch()
 
@@ -84,17 +82,17 @@ const styles = StyleSheet.create({
       gap: 5,
       justifyContent: 'center',
       alignItems: 'center',
-      marginTop: 50,
+      marginTop: 40,
     },
     subtitle: {
       color: "#fff",
       fontFamily: "Afacad-SemiBold",
-      fontSize: 12,
+      fontSize: 15,
     },
     subtitleLink: {
       fontFamily: "Afacad-Regular",
       color: "#fff",
-      fontSize: 11,
+      fontSize: 14,
       textDecorationLine: 'underline'
     }
   })

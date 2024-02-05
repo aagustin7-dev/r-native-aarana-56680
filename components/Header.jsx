@@ -55,6 +55,7 @@ const styles = StyleSheet.create({
     headerTitle: {
         color: 'white',
         fontWeight: 'bold',
-        fontSize: 20
+        fontSize: 20,
+        fontFamily: 'Afacad-Medium'
     }
 })

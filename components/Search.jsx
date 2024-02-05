@@ -34,7 +34,7 @@ const Search = ({onSearchHandlerEvent}) => {
       <TextInput
         style={styles.textInput}
         onChangeText={setSearchInput}
-        placeholder='Buscar...'
+        placeholder='Buscá tu producto...'
         value={searchInput}
       />
       <TouchableOpacity onPress={()=>onSearchHandler(searchInput)}>
@@ -60,7 +60,8 @@ const styles = StyleSheet.create({
     searchContainer: {
         flexDirection: 'row',
         justifyContent: 'space-between',
-        padding: 20
+        padding: 5,
+        
     },
     textInput: {
         width: '80%'

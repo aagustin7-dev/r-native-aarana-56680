@@ -1,6 +1,4 @@
-// Componente que representará cada nombre de cada categoría
-
-import { StyleSheet, Text, TouchableOpacity, View } from 'react-native'
+import { StyleSheet, Text, TouchableOpacity } from 'react-native'
 import React from 'react'
 import Card from './Card'
 import { colors } from '../global/colors'
@@ -30,15 +28,16 @@ export default CategoryItem
 
 const styles = StyleSheet.create({
     cardContainer: {
-        backgroundColor: colors.card,
-        padding: 20,
+        backgroundColor: colors.categoryList,
+        padding: 18,
         marginLeft: 20,
         marginRight: 20,
-        marginTop: 30
+        marginTop: 50
     },
     text: {
         textTransform: 'capitalize',
         fontSize: 18,
-        fontFamily: 'Afacad-Regular'
+        fontFamily: 'Afacad-Regular',
+        color: "white"
     }
 })

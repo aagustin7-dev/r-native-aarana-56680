@@ -1,17 +1,12 @@
-import { ActivityIndicator, StyleSheet, Image, Text, View, TouchableOpacity, useWindowDimensions, ScrollView, Dimensions } from 'react-native'
+import { ActivityIndicator, StyleSheet, Image, Text, View, TouchableOpacity, useWindowDimensions, ScrollView } from 'react-native'
 import React, { useEffect, useState } from 'react'
-import products_data from '../data/products_data.json'
-//import Header from '../components/Header'
-import Footer from '../components/Footer'
 import { colors } from '../global/colors';
 import { useSelector, useDispatch } from 'react-redux'
-import { setProductSelected } from '../features/shopSlice'
 import Carousel from '../components/Carousel'
 import { addItem } from '../features/cartSlice'
 
 const ProductDetail = ({route}) => {
 
-  //const [productSelected, setProductSelected] = useState("")
   const [isLoading, setIsLoading] = useState(true)
   const [isPortrait, setIsPortrait] = useState(true)
   const { height, width } = useWindowDimensions()
@@ -24,8 +19,6 @@ const ProductDetail = ({route}) => {
   }, [height])
 
   useEffect(()=>{
-    /*const productFound = products_data.find(product=>product.id===productId)
-    setProductSelected(productFound)*/
     setIsLoading(false)
   }
   ,[productId])

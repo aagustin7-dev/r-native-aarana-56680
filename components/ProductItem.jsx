@@ -2,6 +2,7 @@ import { StyleSheet, Text, Image, TouchableOpacity } from 'react-native'
 import React from 'react'
 import { useDispatch } from 'react-redux'
 import { setProductIdSelected, setProductSelected } from '../features/shopSlice'
+import { colors } from "../global/colors";
 
 const ProductItem = ({product, navigation}) => {
   
@@ -28,12 +29,19 @@ export default ProductItem
 
 const styles = StyleSheet.create({
     containerProductItem: {
+        backgroundColor: colors.productList,
         flexDirection: 'row',
         justifyContent: 'space-between',
-        padding: 10,
-        margin: 10
+        padding: 5,
+        margin: 5,
+        marginTop: 15,
+        borderRadius: 2
     },
-    productTitle: {},
+    productTitle: {
+        color: "white",
+        fontFamily: 'Afacad-SemiBold',
+        fontSize: 18
+    },
     productImage: {
         width: 60,
         height: 60,
