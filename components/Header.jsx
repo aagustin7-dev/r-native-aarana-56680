@@ -33,7 +33,7 @@ const Header = ({ title, navigation }) => {
         email
         &&
         <TouchableOpacity onPress={onLogout}>
-            <AntDesign name="logout" size={20} color="white" />
+            <AntDesign name="logout" size={30} color="white" />
         </TouchableOpacity>
       }
     </View>
@@ -44,18 +44,18 @@ export default Header
 
 const styles = StyleSheet.create({
     headerContainer: {
-        height: 120,
+        height: 130,
         justifyContent: 'space-between',
         alignItems: 'flex-end',
         backgroundColor: colors.header,
         flexDirection: 'row',
         paddingHorizontal: 20,
-        paddingBottom: 35,
+        paddingBottom: 30,
     },
     headerTitle: {
         color: 'white',
         fontWeight: 'bold',
-        fontSize: 20,
+        fontSize: 25,
         fontFamily: 'Afacad-Medium'
     }
 })

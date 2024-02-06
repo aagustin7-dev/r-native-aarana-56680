@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View, TouchableOpacity } from 'react-native'
+import { StyleSheet, Text, View, TouchableOpacity, Image } from 'react-native'
 import Input from '../components/Input'
 import { colors } from '../global/colors'
 import { useLogInMutation } from '../services/authService'
@@ -33,7 +33,15 @@ const Login = ({navigation}) => {
     }, [result])
 
     return (
+      <>
+      
         <View style={styles.container}>
+            <Image
+                source={require('../assets/img/login.png')}
+                style={styles.loginPicture}
+                resizeMode='cover'
+            />
+            <Text>{"\n"}</Text>
             <Input
                 label="Email:"
                 onChange={setEmail}
@@ -53,6 +61,7 @@ const Login = ({navigation}) => {
                 </TouchableOpacity>
             </View>
         </View>
+        </>
     )
 }
 
@@ -64,7 +73,7 @@ const styles = StyleSheet.create({
       justifyContent: 'center',
       alignItems: 'center',
       flex: 1,
-      gap: 10,
+      gap: 10
     },
     btn: {
       padding: 10,
@@ -94,5 +103,9 @@ const styles = StyleSheet.create({
       color: "#fff",
       fontSize: 14,
       textDecorationLine: 'underline'
-    }
+    },
+    loginPicture: {
+      width: "100%",
+      height: 200,
+  },
   })

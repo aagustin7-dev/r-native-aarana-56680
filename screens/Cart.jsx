@@ -47,7 +47,7 @@ const styles = StyleSheet.create({
     backgroundColor: colors.cart,
   },
   cartConfirm: {
-    marginBottom: 110,
+    marginBottom: 140,
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',

@@ -36,19 +36,20 @@ const styles = StyleSheet.create({
         borderWidth:1,
         borderColor:colors.header,
         borderRadius: 10,
-        width: '90%',
+        width: '100%',
         backgroundColor: colors.card,
         color: "#fff",
-        padding: 8
+        padding: 15
     },
     label:{
         fontFamily:'Afacad-SemiBold',
         color: "#fff",
         paddingLeft:5,
         marginBottom:4,
+        fontSize: 20
     },
     error:{
-        padding: 10,
+        padding: 12,
         color: "#FFF",
     }
 })

@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View, TouchableOpacity, KeyboardAvoidingView} from 'react-native'
+import { StyleSheet, Text, View, TouchableOpacity, KeyboardAvoidingView, Image} from 'react-native'
 import Input from '../components/Input'
 import { colors } from '../global/colors'
 import { useEffect, useState } from 'react'
@@ -61,6 +61,12 @@ const Signup = ({navigation}) => {
 
     return (
       <KeyboardAvoidingView style={styles.container} behavior='height'>
+            <Image
+                source={require('../assets/img/singup.png')}
+                style={styles.singupPicture}
+                resizeMode='cover'
+            /> 
+            <Text>{"\n"}</Text>
             <Input
                 label="Email:"
                 onChange={setEmail}
@@ -129,5 +135,9 @@ const styles = StyleSheet.create({
       color: "#fff",
       fontSize: 14,
       textDecorationLine: 'underline'
-    }
+    },
+    singupPicture: {
+      width: "100%",
+      height: 200,
+  },
   })

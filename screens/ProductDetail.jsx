@@ -98,9 +98,9 @@ const styles = StyleSheet.create({
   },
   backgroundDetail: {
     backgroundColor: colors.home,
-    marginTop: 15,
     width: '100%',
-    height: 700
+    height: 700,
+    flex: 1
   },
   buyAlt: {
     marginTop: 10,

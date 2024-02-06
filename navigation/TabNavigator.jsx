@@ -24,7 +24,7 @@ const TabNavigator = () => {
                     component={ShopNavigator}
                     options={{
                         tabBarIcon: ({focused}) => (
-                            <Entypo name="shop" size={24} color={focused?"white":"#ccc"} />
+                            <Entypo name="shop" size={30} color={focused?"white":"#ccc"} />
                         )
                     }} 
                 />
@@ -33,7 +33,7 @@ const TabNavigator = () => {
                     component={CartNavigator}
                     options={{
                         tabBarIcon: ({focused}) => (
-                            <AntDesign name="shoppingcart" size={24} color={focused?"white":"#ccc"} />
+                            <AntDesign name="shoppingcart" size={30} color={focused?"white":"#ccc"} />
                         )
                     }} 
                 />
@@ -42,7 +42,7 @@ const TabNavigator = () => {
                     component={OrdersNavigator} 
                     options={{
                         tabBarIcon: ({focused}) => (
-                            <FontAwesome name="reorder" size={24} color={focused?"#fff":"#ccc"} />
+                            <FontAwesome name="reorder" size={30} color={focused?"#fff":"#ccc"} />
                         )
                     }}
                 />
@@ -51,7 +51,7 @@ const TabNavigator = () => {
                     component={ProfileNavigator} 
                     options={{
                         tabBarIcon: ({focused}) => (
-                            <FontAwesome name="user-o" size={24} color={focused?"#fff":"#ccc"} />
+                            <FontAwesome name="user-o" size={30} color={focused?"#fff":"#ccc"} />
                         )
                     }}
                 />
@@ -70,7 +70,7 @@ const styles = StyleSheet.create({
         left: 25,
         right: 25,
         bottom: 25,
-        borderRadius: 10
-        
+        borderRadius: 10,
+        padding: 20
     }
 })

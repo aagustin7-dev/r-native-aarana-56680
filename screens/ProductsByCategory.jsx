@@ -72,6 +72,7 @@ const styles = StyleSheet.create({
     backgroundColor: colors.home,
     marginTop: 10,
     width: '100%',
-    height: 700
+    height: 700,
+    flex: 1
   }
 })
